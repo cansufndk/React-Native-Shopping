@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { SafeAreaView, StyleSheet, Text, View} from "react-native";
+import { Navigation } from "./src/navigation";
+import { Provider } from "react-redux";
+import { store } from "./src/redux";
 
-export default function App() {
+const App = () => {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+   <Provider store={store}>
+     <SafeAreaView style={{flex:1,}}>
+          <Navigation/>
+    </SafeAreaView>
+   </Provider>
+    );
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
+
+/*
+react-navigation kuruldu
+npm i @react-navigation/native react-native-screens react-safe-area-context
+npm install @react-navigation/native-stack 
+createNative gibi küçük harfle başlayan herşey method büyük harfle başlayanlar component
+bottom-tabs kuruldu
+vector-icons kuruldu
+stylelar oluşturuldu
+react-redux kuruldu
+redux-persist redux-thunk
+@reduxjs/toolkit
+
+*/
